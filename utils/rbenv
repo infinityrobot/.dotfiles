@@ -2,6 +2,16 @@
 # https://github.com/rbenv/rbenv
 
 init_rbenv() {
+  # Set ownership of ~/.rbenv if not set correctly.
+  # See # https://stackoverflow.com/questions/42843948/rails-your-user-account-isnt-allowed-to-install-to-the-system-rubygems
+  rbenv_owner=$(ls -ld ~/.rbenv | awk '{print $3}')
+  current_user=$(whoami)
+  if [[ "$rbenv_owner" != "$current_user" ]]; then
+    warning "~/.rbenv is not owned by current user. Changing ownership..."
+    sudo chown -R $current_user ~/.rbenv
+    success "~/.rbenv permissions fixed!"
+  fi
+  # Initialize rbenv.
   eval "$(rbenv init - zsh)"
 }
 
