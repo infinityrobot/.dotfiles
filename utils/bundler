@@ -1,10 +1,16 @@
 # Bundler utilities.
 # https://bundler.io
 
-install_bundler() {
+install_bundle() {
   if ! command_exists bundle; then
-    if prompt_yn "Bundler not found. Install gem?"; then
-      gem install bundler
-    fi
+    bundle install --gemfile $DOTFILES/packages/Gemfile --quiet
+    rm -rf $DOTFILES/packages/Gemfile.lock
+  fi
+}
+
+update_bundle() {
+  if ! command_exists bundle; then
+    bundle update --gemfile $DOTFILES/packages/Gemfile --quiet
+    rm -rf $DOTFILES/packages/Gemfile.lock
   fi
 }

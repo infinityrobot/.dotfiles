@@ -2,8 +2,7 @@
 # https://bundler.io
 
 if command_exists bundle; then
-  bundle install --gemfile $DOTFILES/packages/Gemfile --quiet
-  rm -rf $DOTFILES/packages/Gemfile.lock
+  install_bundle
 else
   warning "Bundler not found. Install with \`gem install bundler\`"
 fi
