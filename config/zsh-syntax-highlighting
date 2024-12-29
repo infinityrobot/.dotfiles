@@ -1,0 +1,4 @@
+# Update ZSH highlighting styles.
+ZSH_HIGHLIGHT_STYLES[command]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan,bold'

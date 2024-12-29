@@ -1,0 +1,21 @@
+# Git utilites.
+
+check_git_config() {
+  git config --get user.name >/dev/null && \
+  git config --get user.email >/dev/null
+}
+
+# Configure git.
+configure_git() {
+  git config --global core.editor code
+  git config --global core.excludesfile $HOME/.gitignore_global
+
+  read -p "What name do you use for git? " git_name
+  git config --global user.name $git_name
+
+  read -p "What email do you use for git? " git_email
+  git config --global user.email $git_email
+
+  # Install LFS - https://git-lfs.github.com.
+  git lfs install
+}

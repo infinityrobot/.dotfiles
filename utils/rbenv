@@ -1,0 +1,16 @@
+# rbenv utilities.
+# https://github.com/rbenv/rbenv
+
+init_rbenv() {
+  eval "$(rbenv init - zsh)"
+}
+
+install_latest_ruby() {
+  latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
+  rbenv install $latest_ruby_version
+  rbenv global $latest_ruby_version
+  rbenv rehash
+  gem install bundler
+  bundle install --gemfile=$dotfile_path/packages/Gemfile
+  rm -f $dotfile_path/packages/Gemfile.lock
+}

@@ -1,0 +1,48 @@
+# Symlink utilities.
+
+safe_symlink() {
+  local source_path=$1
+  local target_path=$2
+
+  notice "Symlinking $source_path to $target_path...\r"
+
+  # Backup existing file if it exists and is different.
+  if [[ -f "$target_path" ]] && ! diff "$source_path" "$target_path" >/dev/null 2>&1; then
+    local backup_path="${target_path}-old"
+    warning "Existing $target_path differs, backing up to $backup_path"
+    cp -f "$target_path" "$backup_path" || { error "Backup failed"; return 1; }
+  fi
+
+  # Remove existing symlink or file.
+  if [[ -L "$target_path" ]]; then
+    unlink "$target_path"
+  elif [[ -f "$target_path" ]]; then
+    rm -f "$target_path"
+  fi
+
+  # Create new symlink
+  ln -s "$source_path" "$target_path"
+  success "Symlinked $target_path"
+}
+
+# Dotfiles symlink utilities.
+set_up_dotfiles_symlinks() {
+  for source_path in $(find "$DOTFILES/symlinks" -name "*.symlink"); do
+    file_name=${source_path##*/}
+    target_path=~/.${file_name%.*}
+
+    if ! check_dotfiles_symlink $target_path; then
+      safe_symlink $source_path $target_path
+    fi
+  done
+}
+
+check_dotfiles_symlink() {
+  local file_path=$1
+  [[ -z "$file_path" ]] && { error "No file path provided"; return 1; }
+
+  local file_name=$(basename "$file_path" | sed 's/^.//')
+  local dotfile_symlink_path="$DOTFILES/symlinks/$file_name.symlink"
+
+  [[ -L "$file_path" && "$(readlink "$file_path")" == "$dotfile_symlink_path" ]]
+}

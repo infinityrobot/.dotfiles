@@ -1,0 +1,8 @@
+# zsh-autosuggestions.
+# https://github.com/zsh-users/zsh-autosuggestions
+
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+  warning "zsh-autosuggestions not found. Install with \`brew install zsh-autosuggestions\`"
+fi

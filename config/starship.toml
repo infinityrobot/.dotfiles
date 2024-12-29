@@ -1,0 +1,45 @@
+# Starship configuration.
+# https://starship.rs/config/
+
+# ---------------------------------------------------------------------------- #
+# Prompt
+# ---------------------------------------------------------------------------- #
+
+# A minimal left prompt with right detail.
+add_newline = false
+format = """$character"""
+right_format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$direnv
+"""
+
+# ---------------------------------------------------------------------------- #
+# Modules
+# ---------------------------------------------------------------------------- #
+
+[direnv]
+disabled=false
+format='[$allowed]($style) '
+allowed_msg='✓ ENV'
+denied_msg='✗ ENV'
+
+[git_branch]
+symbol=''
+format='[$symbol$branch(:$remote_branch)]($style) '
+truncation_length=16
+
+[git_status]
+format='[$all_status$ahead_behind]($style) '
+ahead='[↑](cyan) '
+behind='[↓](purple) '
+conflicted='[※](red) '
+deleted='[-](red) '
+diverged='[⚡︎](purple) '
+staged='[+](green) '
+stashed='[S](yellow) '
+modified='[+/-](yellow) '
+up_to_date='[◎](green) '

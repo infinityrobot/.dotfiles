@@ -1,0 +1,8 @@
+# rbenv.
+# https://github.com/rbenv/rbenv
+
+if [ -x "/opt/homebrew/bin/rbenv" ]; then
+  init_rbenv
+else
+  warning "rbenv not found. Install with \`brew install rbenv\`"
+fi

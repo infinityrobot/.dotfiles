@@ -1,0 +1,9 @@
+# Shell script utilities.
+
+command_exists() { command -v "$1" >/dev/null 2>&1; }
+
+prompt_yn() {
+  local msg=$1
+  echo -n "$(warning "$1 ${dim}[y/n]${reset} ")"
+  read yn && [[ $yn =~ ^[Yy] ]]
+}

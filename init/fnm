@@ -1,0 +1,8 @@
+# fnm.
+# https://github.com/Schniz/fnm
+
+if [ -x "/opt/homebrew/bin/fnm" ]; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
+else
+  warning "fnm not found. Install with \`brew install fnm\`"
+fi

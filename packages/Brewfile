@@ -1,0 +1,32 @@
+# Brews.
+brew "coreutils"
+brew "curl"
+brew "direnv"
+brew "git"
+brew "git-lfs"
+brew "fnm"
+brew "jq"
+brew "ollama"
+brew "openssl"
+brew "readline"
+brew "rbenv"
+brew "starship"
+brew "sqlite3"
+brew "wget"
+brew "xmlstarlet"
+brew "xz"
+brew "zlib"
+brew "zsh"
+brew "zsh-completions"
+
+# Casks
+cask "github"
+cask "sf-symbols"
+cask "visual-studio-code"
+
+# Fonts.
+cask "font-geist"
+cask "font-geist-mono"
+cask "font-new-york"
+cask "font-sf-pro"
+cask "font-sf-mono"

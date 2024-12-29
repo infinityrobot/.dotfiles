@@ -1,0 +1,4 @@
+# zsh setup.
+
+# Create .zshrc.local if it doesn't exist.
+[[ ! -f ~/.zshrc.local ]] && { info "Creating .zshrc.local"; touch ~/.zshrc.local; }

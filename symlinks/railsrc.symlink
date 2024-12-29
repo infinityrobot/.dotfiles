@@ -1,0 +1,5 @@
+--css=tailwind
+--database=postgresql
+--skip-bundle
+--skip-system-test
+--skip-test

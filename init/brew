@@ -1,0 +1,10 @@
+# Homebrew.
+# https://brew.sh
+
+if [ -x "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  if prompt_yn "Homebrew not found. Install from brew.sh?"; then
+    install_devtools && install_brew && install_brewfile
+  fi
+fi

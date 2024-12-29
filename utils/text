@@ -1,0 +1,28 @@
+# Text color & formatting output utilities.
+# See https://stackoverflow.com/a/20983251 for more detail.
+
+# Color utilites.
+black=$(tput setaf 0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+white=$(tput setaf 7)
+
+# Format utilites.
+bold=$(tput bold)
+dim=$(tput dim)
+underline=$(tput smul)
+
+# Role utilities.
+notice()  { echo "${reset}$1"                             }
+info()    { echo "${bold}${cyan}$1${reset}"               }
+success() { echo "${bold}${green}\xE2\x98\x91 $1${reset}" }
+warning() { echo "${yellow}\xE2\x9A\xA0 $1${reset}"       }
+error()   { echo "${red}\xE2\x98\x92 $1${reset}"          }
+error()   { echo "${red}\xE2\x98\x92 $1${reset}"          }
+
+# Reset.
+reset=$(tput sgr0)

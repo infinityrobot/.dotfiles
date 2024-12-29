@@ -1,0 +1,13 @@
+# macOS dev tools utilities.
+
+check_devtools() {
+  xcode-select -p &>/dev/null
+}
+
+install_devtools() {
+  if [[ "$(uname)" == "Darwin" ]] && ! check_devtools; then
+    notice "Installing Xcode dev tools..."
+    xcode-select --install
+    success "Xcode dev tools installed!"
+  fi
+}

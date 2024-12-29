@@ -1,0 +1,11 @@
+# Starship.
+# https://starship.rs
+
+if [ -x "/opt/homebrew/bin/starship" ]; then
+  export STARSHIP_CONFIG=$DOTFILES/config/starship.toml
+  eval "$(starship init zsh)"
+else
+  warning "Starship not found. Install with \`brew install starship\`"
+  # Set default prompt in case Starship is not installed.
+  PS1='%F{green}%n@%m%f:%F{blue}%~%f$ '
+fi

@@ -1,0 +1,43 @@
+# Homebrew utilities.
+# https://brew.sh
+
+install_brew() {
+  if [ -z "$(command -v brew)" ]; then
+    info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    success "Homebrew installed!"
+    update_brew
+  fi
+}
+
+install_brewfile() {
+  if command_exists brew; then
+    info "Installing Homebrew bundle..."
+    brew bundle --file="$DOTFILES/packages/Brewfile"
+    success "Homebrew Bundle installed!"
+  fi
+}
+
+update_brew() {
+  info "Updating Homebrew..."
+  brew update
+  brew outdated
+  brew upgrade
+  brew doctor
+  brew cleanup --prune=all
+  success "Homebrew updated!"
+}
+
+install_update_brew() {
+  if [ -z "$(command -v brew)" ]; then
+    error "No brew installation found, installing brew..."
+    install_brew
+  else
+    info "Brew installation found, updating brew..."
+    update_brew
+  fi
+}
+
+smart_brew() {
+  HOMEBREW_NO_AUTO_UPDATE=1 brew `brew ls --versions "$1" | wc -l | xargs expr | sed 's/0/install/' | sed 's/1/upgrade/'` "$1"
+}

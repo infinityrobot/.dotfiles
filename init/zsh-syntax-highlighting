@@ -1,0 +1,9 @@
+# zsh-syntax-highlighting.
+# https://github.com/zsh-users/zsh-syntax-highlighting
+
+if [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $DOTFILES/config/zsh-syntax-highlighting
+else
+  warning "zsh-syntax-highlighting not found. Install with \`brew install zsh-syntax-highlighting\`"
+fi
