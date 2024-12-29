@@ -1,5 +1,10 @@
 # Shell script utilities.
 
+check_dir_owner() {
+  [[ $# -ne 1 || ! -d "$1" ]] && return 1
+  [[ -O "$1" ]]
+}
+
 command_exists() { command -v "$1" >/dev/null 2>&1; }
 
 prompt_yn() {
