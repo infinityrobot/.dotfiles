@@ -1,26 +1,30 @@
 # rbenv utilities.
 # https://github.com/rbenv/rbenv
 
+latest_ruby_version() {
+  rbenv install -l | grep -v - | tail -1
+}
+
 init_rbenv() {
-  # Set ownership of ~/.rbenv if not set correctly.
-  # See # https://stackoverflow.com/questions/42843948/rails-your-user-account-isnt-allowed-to-install-to-the-system-rubygems
-  rbenv_owner=$(ls -ld ~/.rbenv | awk '{print $3}')
-  current_user=$(whoami)
-  if [[ "$rbenv_owner" != "$current_user" ]]; then
-    warning "~/.rbenv is not owned by current user. Changing ownership..."
-    sudo chown -R $current_user ~/.rbenv
-    success "~/.rbenv permissions fixed!"
+  current_ruby_version=$(rbenv version-name)
+  # Install latest ruby if currently set to system.
+  if [[ "$current_ruby_version" = "system" ]]; then
+    warning "rbenv set to use system Ruby. Installing latest Ruby with rbenv..."
+    install_latest_ruby
+  fi
+  # Warn if global not on latest Ruby.
+  if [[ "$current_ruby_version" != "$(latest_ruby_version)" ]]; then
+    warning "rbenv set to use $current_ruby_version but $(latest_ruby_version) is available!"
   fi
   # Initialize rbenv.
   eval "$(rbenv init - zsh)"
 }
 
 install_latest_ruby() {
-  latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
-  rbenv install $latest_ruby_version
-  rbenv global $latest_ruby_version
+  rbenv install $(latest_ruby_version)
+  rbenv global $(latest_ruby_version)
   rbenv rehash
   gem install bundler
-  bundle install --gemfile=$dotfile_path/packages/Gemfile
-  rm -f $dotfile_path/packages/Gemfile.lock
+  install_bundle
+  rm -f $DOTFILES/packages/Gemfile.lock
 }

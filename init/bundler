@@ -1,8 +1,0 @@
-# Bundler.
-# https://bundler.io
-
-if command_exists bundle; then
-  install_bundle
-else
-  warning "Bundler not found. Install with \`gem install bundler\`"
-fi
