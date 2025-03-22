@@ -4,5 +4,7 @@
 if [ -x "/opt/homebrew/bin/fnm" ]; then
   eval "$(fnm env --use-on-cd --shell zsh)"
 else
-  warning "fnm not found. Install with \`brew install fnm\`"
+  if prompt_yn "fnm not found. Install with \`brew install fnm\`?"; then
+    brew install fnm
+  fi
 fi

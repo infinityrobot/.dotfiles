@@ -4,5 +4,7 @@
 if [ -x "/opt/homebrew/bin/direnv" ]; then
   eval "$(direnv hook zsh)"
 else
-  warning "direnv not found. Install with \`brew install direnv\`"
+  if prompt_yn "direnv not found. Install with \`brew install direnv\`?"; then
+    brew install direnv
+  fi
 fi

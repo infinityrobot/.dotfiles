@@ -1,0 +1,11 @@
+# uv.
+# https://github.com/astral-sh/uv
+
+if [ -x "/opt/homebrew/bin/uv" ]; then
+  eval "$(uv generate-shell-completion zsh)"
+  eval "$(uvx --generate-shell-completion zsh)"
+else
+  if prompt_yn "uv not found. Install with \`brew install uv\`?"; then
+    brew install uv
+  fi
+fi
