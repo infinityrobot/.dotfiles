@@ -7,7 +7,7 @@
 
 # A minimal left prompt with right detail.
 add_newline = false
-format = "(@$cmd_duration\n\n)$character"
+format = "($cmd_duration\n\n)$character"
 right_format = """
 $directory\
 $git_branch\
@@ -23,7 +23,7 @@ $direnv
 
 [cmd_duration]
 min_time = 1000
-format = '[took](italic) [$duration](bold yellow)'
+format = '[⏱ took](dimmed italic) [$duration](dimmed italic bold yellow)'
 
 [direnv]
 disabled=false
