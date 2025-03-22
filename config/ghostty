@@ -1,0 +1,30 @@
+# This is the configuration file for Ghostty.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+# Theme.
+theme = Dracula
+
+# Fonts.
+font-family = SF Mono
+font-size = 10
+font-thicken = true
+
+# Window.
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+
+window-width = 96
+window-height = 24
+window-padding-x = 10
+
+background-opacity = 0.9
+background-blur = true
+
+# Cursor.
+shell-integration-features = no-cursor
+cursor-style = block
