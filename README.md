@@ -9,7 +9,7 @@ A simple, slimmed down, opinionated, yet flexible set of `dotfiles`.
 - `starship` for prompt
 - `fnm` for Node version management
 - `rbenv` for Ruby version management
-- `pyenv` for Python version management
+- `uv` for Python version management & tooling
 - Optimized for macOS
 - Custom theme based on Snazzy/Dracula
 
