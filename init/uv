@@ -1,7 +1,7 @@
 # uv.
 # https://github.com/astral-sh/uv
 
-if [ -x "/opt/homebrew/bin/uv" ]; then
+if command_exists uv; then
   eval "$(uv generate-shell-completion zsh)"
   eval "$(uvx --generate-shell-completion zsh)"
 else

@@ -1,7 +1,7 @@
 # Direnv.
 # https://github.com/direnv/direnv
 
-if [ -x "/opt/homebrew/bin/direnv" ]; then
+if command_exists direnv; then
   eval "$(direnv hook zsh)"
 else
   if prompt_yn "direnv not found. Install with \`brew install direnv\`?"; then

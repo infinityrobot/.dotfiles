@@ -1,7 +1,7 @@
 # Starship.
 # https://starship.rs
 
-if [ -x "/opt/homebrew/bin/starship" ]; then
+if command_exists starship; then
   export STARSHIP_CONFIG=$DOTFILES/config/starship.toml
   eval "$(starship init zsh)"
 else

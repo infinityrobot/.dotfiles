@@ -1,0 +1,10 @@
+# ngrok.
+# https://ngrok.com
+
+if command_exists ngrok; then
+  eval "$(ngrok completion)"
+else
+  if prompt_yn "ngrok not found. Install with \`brew install ngrok\`?"; then
+    brew install ngrok
+  fi
+fi
