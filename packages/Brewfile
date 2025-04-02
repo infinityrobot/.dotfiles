@@ -29,6 +29,7 @@ cask "visual-studio-code"
 # Fonts.
 cask "font-geist"
 cask "font-geist-mono"
+cask "font-maple-mono-nf"
 cask "font-new-york"
 cask "font-sf-pro"
 cask "font-sf-mono"
