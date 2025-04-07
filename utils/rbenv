@@ -9,12 +9,13 @@ init_rbenv() {
   current_ruby_version=$(rbenv version-name)
   # Install latest ruby if currently set to system.
   if [[ "$current_ruby_version" = "system" ]]; then
-    warning "rbenv set to use system Ruby. Installing latest Ruby with rbenv..."
-    install_latest_ruby
+    if prompt_yn "rbenv set to use system Ruby. Want to install the latest Ruby with rbenv?"; then
+      install_latest_ruby
+    fi
   fi
   # Warn if global not on latest Ruby.
   if [[ "$current_ruby_version" != "$(latest_ruby_version)" ]]; then
-    warning "rbenv set to use $current_ruby_version but $(latest_ruby_version) is available!"
+    warning "rbenv global set to use $current_ruby_version but $(latest_ruby_version) is available!"
   fi
   # Initialize rbenv.
   eval "$(rbenv init - zsh)"
@@ -22,8 +23,8 @@ init_rbenv() {
 
 install_latest_ruby() {
   rbenv install $(latest_ruby_version)
-  rbenv global $(latest_ruby_version)
   rbenv rehash
+  rbenv global $(latest_ruby_version)
   gem install bundler
   install_bundle
   rm -f $DOTFILES/packages/Gemfile.lock
