@@ -1,0 +1,72 @@
+[user]
+	name = Ritchie Cotton
+	email = 243725+infinityrobot@users.noreply.github.com
+
+[core]
+	editor = zed --wait
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+	pager = less -FRX
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+
+[rebase]
+	autoStash = true
+	autoSquash = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+	renames = copies
+
+[rerere]
+	enabled = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = -version:refcount
+
+[help]
+	autocorrect = prompt
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	sw = switch
+	sc = switch -c
+	cm = commit -m
+	ca = commit --amend
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lg = log --oneline --graph --decorate -20
+	undo = reset --soft HEAD~1
+	wip = !git add -A && git commit -m 'wip'
+	aliases = config --get-regexp ^alias\\.
+
+[include]
+	path = ~/.gitconfig.local
