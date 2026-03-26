@@ -35,6 +35,30 @@ set_up_dotfiles_symlinks() {
       safe_symlink $source_path $target_path
     fi
   done
+
+  set_up_dotdir_symlinks
+}
+
+# Symlink individual files from dot-directories in symlinks/ (e.g. .config, etc.) into ~/.
+set_up_dotdir_symlinks() {
+  for dir_source in "$DOTFILES/symlinks"/.*; do
+    [[ -d "$dir_source" ]] || continue
+    local dir_name="${dir_source##*/}"
+    [[ "$dir_name" == "." || "$dir_name" == ".." ]] && continue
+
+    find "$dir_source" -type f ! -name '.DS_Store' | while read -r source_path; do
+      local relative_path="${source_path#$dir_source/}"
+      local target_path="$HOME/$dir_name/$relative_path"
+
+      mkdir -p "$(dirname "$target_path")"
+
+      if [[ -L "$target_path" && "$(readlink "$target_path")" == "$source_path" ]]; then
+        continue
+      fi
+
+      safe_symlink "$source_path" "$target_path"
+    done
+  done
 }
 
 check_dotfiles_symlink() {
