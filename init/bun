@@ -1,0 +1,9 @@
+
+if [ -x "/opt/homebrew/bin/bun" ]; then
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+else
+  if prompt_yn "bun not found. Install with \`brew install oven-sh/bun/bun\`?"; then
+    brew install oven-sh/bun/bun
+  fi
+fi
