@@ -1,0 +1,21 @@
+{
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "imessage@claude-plugins-official": true,
+    "telegram@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "skipAutoPermissionPrompt": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/name-session-on-stop.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
