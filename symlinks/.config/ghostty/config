@@ -14,6 +14,9 @@ font-family = Maple Mono Normal NF
 font-size = 10
 font-thicken = true
 
+# Icon.
+macos-icon = official
+
 # Window.
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
@@ -28,3 +31,6 @@ background-blur = true
 # Cursor.
 shell-integration-features = no-cursor
 cursor-style = block
+
+# Keys.
+keybind = shift+enter=text:\n
