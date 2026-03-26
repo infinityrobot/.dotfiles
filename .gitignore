@@ -2,5 +2,6 @@
 .DS_Store
 .DS_Store?
 
-# Ignore AI local settings.
-.claude/settings.local.json
+# Local settings.
+*.local
+*.local.json
