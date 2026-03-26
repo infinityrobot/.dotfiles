@@ -25,48 +25,20 @@ safe_symlink() {
   success "Symlinked $target_path"
 }
 
-# Dotfiles symlink utilities.
-set_up_dotfiles_symlinks() {
-  for source_path in $(find "$DOTFILES/symlinks" -name "*.symlink"); do
-    file_name=${source_path##*/}
-    target_path=~/.${file_name%.*}
+# Symlink every file in home/ to its corresponding path under $HOME.
+set_up_home_symlinks() {
+  local home_dir="$DOTFILES/home"
 
-    if ! check_dotfiles_symlink $target_path; then
-      safe_symlink $source_path $target_path
+  find "$home_dir" -type f ! -name '.DS_Store' | while read -r source_path; do
+    local relative_path="${source_path#$home_dir/}"
+    local target_path="$HOME/$relative_path"
+
+    # Skip if already correctly symlinked.
+    if [[ -L "$target_path" && "$(readlink "$target_path")" == "$source_path" ]]; then
+      continue
     fi
+
+    mkdir -p "$(dirname "$target_path")"
+    safe_symlink "$source_path" "$target_path"
   done
-
-  set_up_dotdir_symlinks
-}
-
-# Symlink individual files from dot-directories in symlinks/ (e.g. .config, etc.) into ~/.
-set_up_dotdir_symlinks() {
-  for dir_source in "$DOTFILES/symlinks"/.*; do
-    [[ -d "$dir_source" ]] || continue
-    local dir_name="${dir_source##*/}"
-    [[ "$dir_name" == "." || "$dir_name" == ".." ]] && continue
-
-    find "$dir_source" -type f ! -name '.DS_Store' | while read -r source_path; do
-      local relative_path="${source_path#$dir_source/}"
-      local target_path="$HOME/$dir_name/$relative_path"
-
-      mkdir -p "$(dirname "$target_path")"
-
-      if [[ -L "$target_path" && "$(readlink "$target_path")" == "$source_path" ]]; then
-        continue
-      fi
-
-      safe_symlink "$source_path" "$target_path"
-    done
-  done
-}
-
-check_dotfiles_symlink() {
-  local file_path=$1
-  [[ -z "$file_path" ]] && { error "No file path provided"; return 1; }
-
-  local file_name=$(basename "$file_path" | sed 's/^.//')
-  local dotfile_symlink_path="$DOTFILES/symlinks/$file_name.symlink"
-
-  [[ -L "$file_path" && "$(readlink "$file_path")" == "$dotfile_symlink_path" ]]
 }

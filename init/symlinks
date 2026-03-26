@@ -1,4 +1,4 @@
 # Symlinks.
 
 # Set up symlinks.
-set_up_dotfiles_symlinks
+set_up_home_symlinks
