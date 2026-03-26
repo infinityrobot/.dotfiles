@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // Theme.
+  "inlay_hints": {
+    "show_background": false,
+    "enabled": true,
+  },
+  "theme": "Arcadia Dark",
+  "icon_theme": "Zed (Default)",
+
+  // Buffer
+  "buffer_font_family": "Maple Mono Normal NF",
+  "buffer_font_size": 11,
+  "buffer_font_weight": 500,
+  "buffer_line_height": "comfortable",
+  "tab_size": 2,
+  "unnecessary_code_fade": 0.5,
+
+  // Wrap guides.
+  "preferred_line_length": 100,
+  "show_wrap_guides": true,
+
+  // Files.
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+
+  // Gutters.
+  "gutter": {
+    "line_numbers": true,
+  },
+
+  // AI.
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+
+  // UI.
+  "ui_font_family": "Maple Mono Normal NF",
+  "ui_font_size": 13.0,
+  "project_panel": {
+    "entry_spacing": "standard",
+    "folder_icons": false,
+    "indent_size": 12,
+  },
+
+  // Terminal.
+  "terminal": {
+    "font_size": 10,
+  },
+
+  // Languages.
+  "lsp_document_colors": "inlay",
+  "languages": {
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "rubocop", "!solargraph"],
+      "preferred_line_length": 100,
+    },
+    "JavaScript": {
+      "formatter": [],
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.fixAll.eslint": true,
+      },
+    },
+    "Vue.js": {
+      "formatter": [],
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.fixAll.eslint": true,
+      },
+    },
+  },
+
+  // Telemetry.
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false,
+  },
+}
