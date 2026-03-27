@@ -7,13 +7,34 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  // Agents.
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+
   // Theme.
   "inlay_hints": {
     "show_background": false,
     "enabled": true,
   },
-  "theme": "Arcadia Dark",
-  "icon_theme": "Zed (Default)",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Arcadia Dark",
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
 
   // Buffer
   "buffer_font_family": "Maple Mono Normal NF",
