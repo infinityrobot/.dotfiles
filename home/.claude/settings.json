@@ -1,12 +1,4 @@
 {
-  "enabledPlugins": {
-    "ruby-lsp@claude-plugins-official": true,
-    "imessage@claude-plugins-official": true,
-    "telegram@claude-plugins-official": true
-  },
-  "effortLevel": "high",
-  "plansDirectory": "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Claude Plans",
-  "skipAutoPermissionPrompt": true,
   "hooks": {
     "Stop": [
       {
@@ -18,5 +10,13 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "imessage@claude-plugins-official": true,
+    "telegram@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "plansDirectory": "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Claude Plans",
+  "skipAutoPermissionPrompt": true
 }
