@@ -1,6 +1,8 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem "bundler"
-gem "pg"
-gem "rails"
-gem "rubocop"
+source 'https://rubygems.org'
+
+gem 'bundler'
+gem 'pg'
+gem 'rails'
+gem 'rubocop'
