@@ -12,7 +12,7 @@
         "surface.background": "#292d38d0",
         "elevated_surface.background": "#292d38ee",
         "drop_target.background": "#323643cc",
-        "panel.background": "#00000000",
+        "panel.background": "#292d3800",
 
         "border": "#3b404fff",
         "border.variant": "#2e323eff",

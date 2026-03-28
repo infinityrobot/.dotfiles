@@ -8,6 +8,18 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // Agents.
+  "document_symbols": "on",
+  "document_folding_ranges": "on",
+  "semantic_tokens": "combined",
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "ui_font_weight": 400.0,
+  "git_panel": {
+    "tree_view": true
+  },
   "agent_servers": {
     "github-copilot-cli": {
       "type": "registry",
@@ -27,7 +39,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Arcadia Light",
     "dark": "Arcadia Dark",
   },
   "icon_theme": {
@@ -37,9 +49,9 @@
   },
 
   // Buffer
-  "buffer_font_family": "Maple Mono Normal NF",
-  "buffer_font_size": 11,
-  "buffer_font_weight": 500,
+  "buffer_font_family": "Geist Mono",
+  "buffer_font_size": 11.0,
+  "buffer_font_weight": 400.0,
   "buffer_line_height": "comfortable",
   "tab_size": 2,
   "unnecessary_code_fade": 0.5,
@@ -50,7 +62,7 @@
 
   // Files.
   "autosave": "on_focus_change",
-  "format_on_save": "on",
+  "format_on_save": "off",
 
   // Gutters.
   "gutter": {
@@ -63,7 +75,7 @@
   },
 
   // UI.
-  "ui_font_family": "Maple Mono Normal NF",
+  "ui_font_family": "Geist Mono",
   "ui_font_size": 13.0,
   "project_panel": {
     "entry_spacing": "standard",
@@ -73,17 +85,20 @@
 
   // Terminal.
   "terminal": {
-    "font_size": 10,
+    "cursor_shape": "block",
+    "font_size": 10.0
   },
 
   // Languages.
   "lsp_document_colors": "inlay",
   "languages": {
     "Ruby": {
+      "format_on_save": "off",
       "language_servers": ["ruby-lsp", "rubocop", "!solargraph"],
       "preferred_line_length": 100,
     },
     "JavaScript": {
+      "format_on_save": "off",
       "formatter": [],
       "code_actions_on_format": {
         "source.organizeImports": true,
@@ -91,6 +106,7 @@
       },
     },
     "Vue.js": {
+      "format_on_save": "off",
       "formatter": [],
       "code_actions_on_format": {
         "source.organizeImports": true,
