@@ -8,18 +8,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // Agents.
-  "document_symbols": "on",
-  "document_folding_ranges": "on",
-  "semantic_tokens": "combined",
-  "diagnostics": {
-    "inline": {
-      "enabled": true
-    }
-  },
-  "ui_font_weight": 400.0,
-  "git_panel": {
-    "tree_view": true
-  },
   "agent_servers": {
     "github-copilot-cli": {
       "type": "registry",
@@ -51,22 +39,26 @@
   // Buffer
   "buffer_font_family": "Geist Mono",
   "buffer_font_size": 11.0,
-  "buffer_font_weight": 400.0,
+  "buffer_font_weight": 500.0,
   "buffer_line_height": "comfortable",
-  "tab_size": 2,
-  "unnecessary_code_fade": 0.5,
-
-  // Wrap guides.
+  "gutter": {
+    "line_numbers": true,
+  },
+  "minimap": {
+    "show": "always"
+  },
   "preferred_line_length": 100,
   "show_wrap_guides": true,
+  "tab_size": 2,
+  "unnecessary_code_fade": 0.5,
 
   // Files.
   "autosave": "on_focus_change",
   "format_on_save": "off",
 
-  // Gutters.
-  "gutter": {
-    "line_numbers": true,
+  // Git.
+  "git_panel": {
+    "tree_view": true
   },
 
   // AI.
@@ -74,9 +66,17 @@
     "provider": "copilot",
   },
 
+  // Diagnostics.
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+
   // UI.
   "ui_font_family": "Geist Mono",
   "ui_font_size": 13.0,
+  "ui_font_weight": 500.0,
   "project_panel": {
     "entry_spacing": "standard",
     "folder_icons": false,
@@ -86,11 +86,13 @@
   // Terminal.
   "terminal": {
     "cursor_shape": "block",
-    "font_size": 10.0
+    "font_size": 10.0,
+    "font_weight": 500.0,
   },
 
   // Languages.
-  "lsp_document_colors": "inlay",
+  "document_symbols": "on",
+  "document_folding_ranges": "on",
   "languages": {
     "Ruby": {
       "format_on_save": "off",
@@ -113,6 +115,21 @@
         "source.fixAll.eslint": true,
       },
     },
+  },
+  "lsp_document_colors": "inlay",
+  "semantic_tokens": "combined",
+
+  // Extensions.
+  "auto_install_extensions": {
+    "color-highlight": true,
+    "html": true,
+    "mermaid": true,
+    "rainbow-csv": true,
+    "ruby": true,
+    "scss": true,
+    "toml": true,
+    "vue": true,
+    "xml": true,
   },
 
   // Telemetry.
