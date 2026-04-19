@@ -1,0 +1,11 @@
+# pnpm.
+# https://pnpm.io
+
+if command_exists pnpm; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+  export PATH="$PNPM_HOME:$PATH"
+else
+  if prompt_yn "pnpm not found. Install with \`brew install pnpm\`?"; then
+    brew install pnpm
+  fi
+fi

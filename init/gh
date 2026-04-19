@@ -1,0 +1,14 @@
+# GitHub CLI.
+# https://cli.github.com
+
+if command_exists gh; then
+  if ! gh auth status >/dev/null 2>&1; then
+    if prompt_yn "gh is not authenticated. Run \`gh auth login\`?"; then
+      gh auth login
+    fi
+  fi
+else
+  if prompt_yn "gh not found. Install with \`brew install gh\`?"; then
+    brew install gh
+  fi
+fi
