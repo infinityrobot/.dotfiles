@@ -1,4 +1,13 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(obsidian:*)"
+    ]
+  },
   "hooks": {
     "Stop": [
       {
@@ -16,7 +25,15 @@
     "imessage@claude-plugins-official": true,
     "telegram@claude-plugins-official": true
   },
-  "effortLevel": "high",
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
   "plansDirectory": "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Claude Plans",
   "skipAutoPermissionPrompt": true
 }
