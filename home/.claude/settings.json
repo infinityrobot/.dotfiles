@@ -35,5 +35,6 @@
   },
   "effortLevel": "xhigh",
   "plansDirectory": "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Claude Plans",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
