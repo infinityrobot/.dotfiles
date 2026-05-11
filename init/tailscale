@@ -1,0 +1,10 @@
+# Tailscale.
+# https://tailscale.com/docs/reference/tailscale-cli
+
+if command_exists tailscale; then
+  eval "$(tailscale completion zsh)"
+else
+  if prompt_yn "tailscale not found. Install with \`brew install tailscale\`?"; then
+    brew install tailscale
+  fi
+fi
