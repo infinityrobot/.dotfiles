@@ -1,0 +1,5 @@
+# Hermes Agent.
+# https://hermes-agent.nousresearch.com
+
+# Ensure ~/.local/bin is on PATH.
+export PATH="$HOME/.local/bin:$PATH"
