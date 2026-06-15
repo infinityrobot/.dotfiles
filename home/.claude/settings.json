@@ -23,7 +23,8 @@
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
     "imessage@claude-plugins-official": true,
-    "telegram@claude-plugins-official": true
+    "telegram@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
